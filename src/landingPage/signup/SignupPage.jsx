@@ -12,7 +12,6 @@ import Footer from '../Footer'
 export default function SignupPage  ()  {
   return (
     <div>
-        <Navbar/>
         <Open_ac/>
         <Investment/>
         <Step/>
@@ -20,7 +19,6 @@ export default function SignupPage  ()  {
         <Explore/>
         <FAQ/>
         <Signup/>
-        <Footer/>
     </div>
   )
 }

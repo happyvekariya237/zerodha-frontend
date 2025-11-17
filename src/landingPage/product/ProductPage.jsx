@@ -13,7 +13,6 @@ export default function ProductPage  ()  {
         <Leftimg/>
         <Rightimg/>
         <Leftimg/>
-        <Footer/>
     </div>
   )
 }

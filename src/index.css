@@ -5,14 +5,11 @@
 .navbar{
   height: 70px;
   width: 100%;
+  background-color: grey;
 }
 
 .logos i{
   height: 50px;
   width: 50px;
   font-size: x-large;
-}
-
-.footer-con a{
-   
 }

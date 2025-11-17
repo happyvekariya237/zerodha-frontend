@@ -8,11 +8,10 @@ import Footer from '../Footer'
 export default function Aboutpage  ()  {
   return (
     <div>
-        <Navbar/>
         <Hero/>
         <Nithin/>
         <AllPeople/>
-        <Footer/>
+      
     </div>
   )
 }

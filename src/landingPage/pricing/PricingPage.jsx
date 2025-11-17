@@ -10,7 +10,7 @@ import Explain from './explain'
 export default function PricingPage  ()  {
   return (
     <div>
-        <Navbar/>
+       
         <Hero/>
         <Brokerage/>
         <Charges/>
