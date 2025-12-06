@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import api from "./api";
 
 const Login = () => {
   const [inputValue, setInputValue] = useState({
@@ -26,38 +26,40 @@ const Login = () => {
       position: "bottom-left",
     });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "http://localhost:8080/login",
-        {
-          ...inputValue,
-        },
-        { withCredentials: true }
-      );
-      console.log(data);
-      const { success, message } = data;
-     if (success) {
-  handleSuccess(message);
-  setTimeout(() => {
-    // Redirect to the other React project running at 5173
-    window.location.href = "http://localhost:5173/";
-  }, 1000);
-} else {
-  handleError(message);
-}
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-
-    } catch (error) {
-      console.log(error);
-    }
-    setInputValue({
+  try {
+    const { data } = await api.post("/login", {
       ...inputValue,
-      email: "",
-      password: "",
     });
-  };
+
+    console.log(data);
+
+    const { success, message } = data;
+
+    if (success) {
+      handleSuccess(message);
+
+      setTimeout(() => {
+        // Redirect to your dashboard project
+        window.location.href = "https://zerodha-dashboard-rh4a.onrender.com";
+      }, 1000);
+    } else {
+      handleError(message);
+    }
+
+  } catch (error) {
+    console.log(error);
+    handleError("Something went wrong");
+  }
+
+  // Reset form
+  setInputValue({
+    email: "",
+    password: "",
+  });
+};
 
   return (
     <div className="form_container">
